@@ -12,7 +12,7 @@ var db = process.env.DATABASE_CONNECTION_URL;
 
 mongoose.connect(db, {useNewUrlParser: true});
 
-mongoose.connection.on('error',function (err) {  
+mongoose.connection.on('error', function(err){  
   console.log("There was an error connectiong to the database: " + err);
 }); 
 
@@ -22,6 +22,20 @@ app.get('/', function(req, res){
 
 app.get('/songs', function(req, res){
   Song.find({})
+    .exec(function(err, songs){
+      if (err){
+        res.send('An error occured finding songs.');
+      }else{
+        console.log("Songs found.");
+        res.json(songs);
+      }
+    });
+});
+
+app.get('/songs/:genre', function(req, res){
+  Song.find({
+    genre: req.params.genre
+  })
     .exec(function(err, songs){
       if (err){
         res.send('An error occured finding songs.');
