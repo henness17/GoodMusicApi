@@ -32,9 +32,23 @@ app.get('/songs', function(req, res){
     });
 });
 
-app.get('/songs/:genre', function(req, res){
+app.get('/songs/genre/:genre', function(req, res){
   Song.find({
     genre: req.params.genre
+  })
+    .exec(function(err, songs){
+      if (err){
+        res.send('An error occured finding songs.');
+      }else{
+        console.log("Songs found.");
+        res.json(songs);
+      }
+    });
+});
+
+app.get('/songs/artist/:artist', function(req, res){
+  Song.find({
+    artist: req.params.artist
   })
     .exec(function(err, songs){
       if (err){
