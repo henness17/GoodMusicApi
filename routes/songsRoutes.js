@@ -1,7 +1,7 @@
-var Song = require('../schemas/SongSchema');
 module.exports = (function() {
     'use strict';
     var songsRoutes = require('express').Router();
+    var Song = require('../schemas/SongSchema');
 
     songsRoutes.get('/', function(req, res){
       Song.find({})
