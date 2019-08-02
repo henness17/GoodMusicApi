@@ -1,5 +1,7 @@
 var express = require('express');
+var cors = require('cors');
 var app = express();
+app.use(cors());
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 var Song = require('./schemas/SongSchema');
@@ -22,9 +24,9 @@ app.get('/songs', function(req, res){
   Song.find({})
     .exec(function(err, songs){
       if (err){
-        res.send('error...');
+        res.send('An error occured finding songs.');
       }else{
-        console.log(songs);
+        console.log("Songs found.");
         res.json(songs);
       }
     });
