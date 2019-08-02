@@ -10,6 +10,10 @@ var db = process.env.DATABASE_CONNECTION_URL;
 
 mongoose.connect(db, {useNewUrlParser: true});
 
+mongoose.connection.on('error',function (err) {  
+  console.log("There was an error connectiong to the database: " + error);
+}); 
+
 app.get('/', function(req, res){
   res.send("Welcome to GoodMusicApi!");
 });
