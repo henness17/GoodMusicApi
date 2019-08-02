@@ -11,7 +11,7 @@ var db = process.env.DATABASE_CONNECTION_URL;
 mongoose.connect(db, {useNewUrlParser: true});
 
 mongoose.connection.on('error',function (err) {  
-  console.log("There was an error connectiong to the database: " + error);
+  console.log("There was an error connectiong to the database: " + err);
 }); 
 
 app.get('/', function(req, res){
