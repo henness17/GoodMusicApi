@@ -17,6 +17,10 @@ var Song = new Schema({
   url: {
     type: String,
     required: true
+  },
+  artwork_url: {
+    type: String,
+    required: true
   }
 });
 
