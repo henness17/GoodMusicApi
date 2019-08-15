@@ -8,4 +8,9 @@ goodmusic.herokuapp.com
   * /songs/artist/{*artist*} - all songs by artist
   * /songs/genre/{*genre*} - all songs of genre
 * POST
-  * /songs/song/{*title, artist, genre, url*}
+  * /songs/song/
+    * title: string
+    * artist: string
+    * genre: string
+    * url: string
+    * artwork_url: string
