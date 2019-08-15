@@ -50,6 +50,7 @@ module.exports = (function() {
       newSong.artist = req.body.artist;
       newSong.genre = req.body.genre;
       newSong.url = req.body.url;
+      newSong.artwork_url = req.body.artwork_url;
 
       newSong.save(function(err, song){
         if (err){
